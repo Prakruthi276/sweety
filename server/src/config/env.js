@@ -14,6 +14,13 @@ const schema = z.object({
   ACCESS_TOKEN_EXPIRES_IN: z.string().default('15m'),
   REFRESH_TOKEN_EXPIRES_DAYS: z.coerce.number().default(7),
   CLIENT_URL: z.string().default('http://localhost:5173'),
+  APP_TIMEZONE: z
+    .string()
+    .refine((tz) => {
+      try { new Intl.DateTimeFormat('en-CA', { timeZone: tz }); return true; }
+      catch { return false; }
+    }, 'APP_TIMEZONE must be a valid IANA timezone, e.g. Asia/Kolkata')
+    .default('Asia/Kolkata'),
 });
 
 const parsed = schema.safeParse(process.env);
