@@ -83,4 +83,4 @@ async function remove(userId, id) {
   if (count === 0) throw new AppError(404, 'Reading not found');
 }
 
-module.exports = { create, list, getOne, update, remove };
+module.exports = { create, list, getOne, update, remove, toDto };
