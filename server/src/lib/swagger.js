@@ -48,6 +48,27 @@ const readingPaths = {
   },
 };
 
+const dateParam = [
+  {
+    name: 'date', in: 'query', required: false,
+    description: 'Selected date (YYYY-MM-DD). Defaults to today. Cannot be in the future.',
+    schema: { type: 'string', format: 'date', example: '2026-10-15' },
+  },
+];
+const reportResponses = { 200: { description: 'Report' }, 400: { description: 'Validation failed' }, 401: { description: 'Unauthorized' } };
+
+const reportPaths = {
+  '/api/reports/daily': {
+    get: { tags: ['Reports'], summary: 'Daily report: the selected date, with each reading', security: auth, parameters: dateParam, responses: reportResponses },
+  },
+  '/api/reports/month-to-date': {
+    get: { tags: ['Reports'], summary: 'Month-to-date: 1st of the month up to the selected date', security: auth, parameters: dateParam, responses: reportResponses },
+  },
+  '/api/reports/monthly': {
+    get: { tags: ['Reports'], summary: "Monthly: the whole month before the selected date's month", security: auth, parameters: dateParam, responses: reportResponses },
+  },
+};
+
 module.exports = {
   openapi: '3.0.3',
   info: { title: 'Sweety API', version: '1.0.0' },
@@ -112,5 +133,6 @@ module.exports = {
       },
     },
     ...readingPaths,
+    ...reportPaths,
   },
 };
