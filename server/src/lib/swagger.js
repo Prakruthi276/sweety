@@ -8,7 +8,7 @@ const auth = [{ bearerAuth: [] }];
 const idParam = [{ name: 'id', in: 'path', required: true, schema: { type: 'integer' } }];
 const readingBody = body(
   {
-    date: { type: 'string', format: 'date', example: '2026-11-09' },
+    date: { type: 'string', format: 'date', example: '2026-10-15' },
     slot: { type: 'string', enum: ['MORNING_FASTING', 'AFTER_BREAKFAST', 'AFTER_LUNCH', 'AFTER_DINNER'] },
     value: { type: 'integer', minimum: 40, maximum: 600, example: 110 },
   },
