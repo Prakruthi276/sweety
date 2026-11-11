@@ -404,6 +404,7 @@ Screenshots are available in the directory.
 - Reports reject future selected dates. If no date is provided, the application uses today's date.
 - The previous-month report always covers the complete month before the selected date's month.
 - Average values are calculated using integer arithmetic and rounded half up to one decimal place.
+- After registering, the client logs the user in automatically with the same credentials, because the register endpoint does not return tokens.
 - Passwords must contain at least eight characters, including one letter and one number.
 - Access tokens are stateless. After logout, an existing access token remains valid until it expires (maximum 15 minutes), while the refresh token is revoked immediately.
 - The frontend uses the browser's local date, while the backend uses `APP_TIMEZONE`. Users in significantly different timezones may encounter a future-date validation message.
