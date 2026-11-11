@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 import FormField from '../components/FormField.jsx';
+import PasswordField from '../components/PasswordField.jsx';
 import { parseApiError } from '../lib/errors';
 
 export default function Register() {
@@ -51,10 +52,9 @@ export default function Register() {
           <input id="email" name="email" type="email" autoComplete="email"
                  value={form.email} onChange={change} />
         </FormField>
-        <FormField id="password" label="Password" error={errors.password}>
-          <input id="password" name="password" type="password" autoComplete="new-password"
-                 value={form.password} onChange={change} />
-        </FormField>
+        <PasswordField id="password" label="Password" name="password"
+          autoComplete="new-password" value={form.password}
+          onChange={change} error={errors.password} />
         <p className="muted small">At least 8 characters, with a letter and a number.</p>
 
         <button type="submit" disabled={submitting}>

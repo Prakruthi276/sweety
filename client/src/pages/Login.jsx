@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 import FormField from '../components/FormField.jsx';
+import PasswordField from '../components/PasswordField.jsx';
 import { parseApiError } from '../lib/errors';
 
 export default function Login() {
@@ -48,10 +49,9 @@ export default function Login() {
           <input id="email" name="email" type="email" autoComplete="email"
                  value={form.email} onChange={change} />
         </FormField>
-        <FormField id="password" label="Password" error={errors.password}>
-          <input id="password" name="password" type="password" autoComplete="current-password"
-                 value={form.password} onChange={change} />
-        </FormField>
+        <PasswordField id="password" label="Password" name="password"
+          autoComplete="current-password" value={form.password}
+          onChange={change} error={errors.password} />
 
         <button type="submit" disabled={submitting}>{submitting ? 'Logging in…' : 'Log in'}</button>
         <p className="muted">No account? <Link to="/register">Register</Link></p>
