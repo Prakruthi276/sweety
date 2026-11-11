@@ -26,6 +26,11 @@ Built as part of the **Kenpath Junior Full Stack Developer – JavaScript & AI a
 - **Pagination:** Paginated reading retrieval through the API.
 - **Automated Tests:** Backend integration tests and frontend component tests.
 
+## Bonus Tasks Completed
+
+- **Pagination on `GET /readings`:** supports `?page=1&limit=10` (limit is capped at 100). The response includes `page`, `limit`, `total` and `totalPages`, and the React Readings page has Previous and Next buttons. Covered by tests in `server/tests/readings.test.js`.
+- **Frontend tests with React Testing Library:** `client/src/components/ReadingForm.test.jsx` tests the reading form: the error messages, the boundary values 40 and 600, the future-date rule, server error messages, and edit mode. Run them with `cd client && npm test`.
+
 ## Validation Rules
 
 | Validation | Error Message |
@@ -385,7 +390,7 @@ Screenshots are available in the directory.
 
 ### Screen Recording
 
-**Demo Video:** 
+**Demo Video:** https://drive.google.com/file/d/1sdNVcDFpyT46J8OBhEIxGMKaFbo_PdLv/view?usp=sharing
 ## Notes
 
 ## Assumptions and Design Decisions
