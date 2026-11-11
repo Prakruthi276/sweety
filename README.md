@@ -386,7 +386,7 @@ Screenshots are available in the directory.
 ### Screen Recording
 
 **Demo Video:** 
-
+## Notes
 ## Assumptions and Design Decisions
 
 - Dates are calendar dates (`YYYY-MM-DD`) stored in PostgreSQL using the `DATE` column type.
@@ -420,6 +420,9 @@ With additional development time, the following improvements could be implemente
 - Use Docker Compose for PostgreSQL and application setup.
 - Add end-to-end testing using Playwright.
 - Generate Swagger documentation directly from Zod schemas.
+- Add a daily wellness tip written by an LLM on the server. It would be generated once a day and cached in the database. The model would receive no patient data, follow a fixed prompt that forbids medical advice, have its output validated, and fall back to a static list of tips if the call fails.
+- Show festival greetings from a maintained list of dates, not from an AI model, because language models can get dates wrong. Keep the wording neutral and inclusive.
+- Add a "readings logged today" progress line with streaks, a CSV or PDF export of reports for doctors, a daily reminder job (BullMQ), and a doctor role.
 
 ---
 
