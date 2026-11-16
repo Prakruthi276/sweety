@@ -2,7 +2,7 @@
 
 Sweety is a full-stack web application that allows diabetes patients to record up to four blood glucose readings per day and view daily and monthly reports.
 
-Built as part of the **Kenpath Junior Full Stack Developer – JavaScript & AI assignment**.
+
 
 ## Tech Stack
 
